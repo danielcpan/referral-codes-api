@@ -1,24 +1,20 @@
-const express = require('express');
-const expressJwt = require('express-jwt');
-const validate = require('express-validation');
-const userController = require('../controllers/user.controller');
-const paramValidation = require('../utils/param-validation.utils');
-const config = require('../config/config');
-const { checkCache } = require('../utils/redis.utils');
+const express = require("express");
+const expressJwt = require("express-jwt");
+const validate = require("express-validation");
+const promotionController = require("../controllers/promotion.controller");
+const paramValidation = require("../utils/param-validation.utils");
+const { checkCache } = require("../utils/redis.utils");
 
 const router = express.Router();
 
-router.route('/me')
-  .get(expressJwt({ secret: config.JWT_SECRET }), checkCache, userController.me);
+router
+  .route("/")
+  .get(checkCache, promotionController.list)
+  .post(promotionController.create);
 
-router.route('/search')
-  .get(expressJwt({ secret: config.JWT_SECRET }), checkCache, userController.search);
-
-router.route('/:userId')
-  .get(expressJwt({ secret: config.JWT_SECRET }), checkCache, userController.get)
-  .put(
-    expressJwt({ secret: config.JWT_SECRET }),
-    validate(paramValidation.updateUser), userController.update,
-  );
+router
+  .route("/:promotionId")
+  .get(checkCache, promotionController.get)
+  .put(promotionController.update);
 
 module.exports = router;
