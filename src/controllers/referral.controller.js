@@ -1,6 +1,7 @@
 const httpStatus = require("http-status");
 const Referral = require("../models/referral.model");
 const APIError = require("../utils/APIError.utils");
+const { addToCache } = require("../utils/redis.utils");
 
 const get = async (req, res, next) => {
   try {
