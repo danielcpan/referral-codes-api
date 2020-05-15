@@ -1,0 +1,44 @@
+{
+  "name": "referral-codes-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "lint": "./node_modules/.bin/eslint --fix server",
+    "start": "nodemon server/index.js",
+    "test": "NODE_ENV=test node_modules/.bin/mocha --opts server/mocha.opts --exit",
+    "tests": "NODE_ENV=test nyc node_modules/.bin/mocha --opts server/mocha.opts server/tests/*.js --exit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielcpan/referral-codes-api.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielcpan/referral-codes-api/issues"
+  },
+  "homepage": "https://github.com/danielcpan/referral-codes-api#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "compression": "^1.7.4",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-jwt": "^5.3.3",
+    "express-validation": "^3.0.2",
+    "express-winston": "^4.0.3",
+    "helmet": "^3.22.0",
+    "http-status": "^1.4.2",
+    "joi": "^14.3.1",
+    "mocha": "^7.1.2",
+    "mongoose": "^5.9.14",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.4",
+    "redis": "^3.0.2",
+    "supertest": "^4.0.2",
+    "winston": "^3.2.1"
+  }
+}
