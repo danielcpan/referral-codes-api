@@ -6,8 +6,8 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint --fix server",
     "start": "nodemon src/index.js",
-    "test": "NODE_ENV=test node_modules/.bin/mocha --opts src/mocha.opts --exit",
-    "tests": "NODE_ENV=test nyc node_modules/.bin/mocha --opts src/mocha.opts src/tests/*.js --exit"
+    "test": "NODE_ENV=test jest ./src/tests",
+    "test:watch": "npm run test -- --watch"
   },
   "repository": {
     "type": "git",

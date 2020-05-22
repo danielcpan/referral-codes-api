@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
-const mongoose = require('mongoose');
-const config = require('../../config/config');
+const mongoose = require("mongoose");
+const config = require("../../config/config");
 
 module.exports = {
   connectMongo: () => {
@@ -10,10 +10,13 @@ module.exports = {
         useUnifiedTopology: true,
         useCreateIndex: true,
       });
-      console.log('Mongo Connection Successful');
+      console.log("Mongo Connection Successful");
     } catch (err) {
       console.log(`Mongo Connection Error: ${err}`);
     }
+  },
+  disconnectMongo: () => {
+    mongoose.connection.close();
   },
   clearDatabase: async () => {
     if (mongoose.connection.db) {
