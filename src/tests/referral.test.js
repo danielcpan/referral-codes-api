@@ -1,29 +1,37 @@
 const httpStatus = require("http-status");
 const app = require("../app");
+const Referral = require("../models/referral.model");
 const { clearDatabase } = require("../utils/mongoose.utils");
-const config = require("../config/config");
 
 after(async () => {
   await clearDatabase();
 });
 
 describe("## Referral APIs", () => {
-  let referral;
+  // let referral;
+
+  // before(async () => {
+  //   const data = {
+  //     code: "ABCDEFG",
+  //     link: "foobar.com",
+  //   };
+
+  //   const response = await request(app).post("/api/referrals/").send(data);
+
+  //   referral = response.body.referral;
+  // });
+
+  // // afterEach(async () => {
+  // //   await User.deleteMany({});
+  // // });
 
   before(async () => {
-    const data = {
-      code: "ABCDEFG",
-      link: "foobar.com",
-    };
-
-    const response = await request(app).post("/api/referrals/").send(data);
-
-    referral = response.body.referral;
+    await Referral.remove({});
   });
 
-  // afterEach(async () => {
-  //   await User.deleteMany({});
-  // });
+  afterEach(async () => {
+    await Referral.remove({});
+  });
 
   describe("# GET /api/referrals/:referralId", () => {
     it("should get referral details", async () => {

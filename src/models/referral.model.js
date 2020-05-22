@@ -10,9 +10,20 @@ const ReferralSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    invalidCount: {
+      type: Number,
+      default: 0,
+      required: true,
+    },
     isInvalid: {
       type: Boolean,
       default: false,
+    },
+    analytics: {
+      clicks: {
+        type: Number,
+        default: 0,
+      },
     },
   },
   {

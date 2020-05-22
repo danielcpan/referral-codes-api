@@ -1,4 +1,4 @@
-const Bank = require('./bank.model');
-const Bonus = require('./bonus.model');
+const Promotion = require("./promotion.model");
+const Referral = require("./referral.model");
 
-module.exports = { Bank, Bonus };
+module.exports = { Promotion, Referral };

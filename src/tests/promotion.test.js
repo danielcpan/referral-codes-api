@@ -1,7 +1,6 @@
 const httpStatus = require("http-status");
 const app = require("../app");
 const { clearDatabase } = require("../utils/mongoose.utils");
-const config = require("../config/config");
 
 after(async () => {
   await clearDatabase();

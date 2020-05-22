@@ -1,7 +1,7 @@
-require('dotenv').config();
-const { expect } = require('chai');
-const request = require('supertest');
-const { connectMongo } = require('./mongoose.utils');
+require("dotenv").config();
+const { expect } = require("chai");
+const request = require("supertest");
+const { connectMongo } = require("./mongoose.utils");
 
 before(async () => {
   connectMongo();
